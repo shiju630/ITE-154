@@ -1,0 +1,127 @@
+
+<html>
+    <head>
+    <title></title>
+    
+    <script type="text/javascript">
+     
+     function convertGrade(){
+        
+        var score = parseInt(document.getElementById("formfield").value);
+        var msg;
+        
+        if (score>=90) {
+            msg="<div id='a'> A </div>";
+        }
+        else if (score>=80) {
+            msg="<div id='b'> B </div>";
+        }
+        else if (score>=70) {
+            msg="<div id='c'> C </div>";
+        }
+        else if (score>=65) {
+            msg="<div id='d'> D </div>";
+        }
+        else {
+            msg="<div id='f'> F </div>";
+        }
+
+        document.getElementById("output").innerHTML = msg;
+
+     }     
+    
+    </script>
+    
+    <style type="text/css">
+    
+    #a { color: #ff0000; }
+    #b { color: #0000ff; }
+    #c { color: #00ff00; }
+    #d { color: #ffa500; }
+    #f { color: #800080; }
+
+
+    body {
+        background-color: #D3D3D3;
+        font-family: arial;
+        text-align: right;
+        color: #008B8B;
+    }
+    
+    #contentwrap {
+        border: 8px #800000 solid;
+        padding: 20px;
+        width: 600px;
+        border-radius: 25px;
+        text-align: right;
+        background: white;
+        margin: 40px auto 0px auto;	
+        background-image: url('http://newton.ncc.edu/gansonj/ite154/img/thumb.jpg');
+        background-repeat: no-repeat;
+        background-position: 30,0;
+    }
+    
+    #formwrap {
+        text-align: center;
+        margin: 0px 0px 60px 200px;
+        padding: 20px 0px 0px 0px;
+        height: 300px;
+    }
+    
+    #title {
+        font-size: 2.2em;
+        border-bottom: 7px #008B8B double;
+        padding: 10px 0px 10px 0px;
+        color: #008B8B;
+        text-align: center;
+    }
+    
+    #formtext {
+        text-align: center;
+        font-size: 1.29em;
+        margin-top: 20px;
+    }
+    
+    #formfield {
+        text-align: center;
+        margin: 5px 20px 10px 20px;
+    }
+    
+    #button {
+        border-radius: 20px;
+    }
+    
+    #output {
+        font-size: 5em;
+    }
+    
+    </style>
+    
+    </head>
+    <body>
+    
+    <div id="contentwrap">
+    
+        <div id="title"> Letter Grade Converter </div>
+        
+        <div id="formwrap">
+        
+            <form>
+        
+                <div id="formtext">Enter grade</div>
+                <input type="text" id="formfield" size="20" />
+                
+                <div style="margin-top: 8px;">
+                    <input type="button" value="Convert Grade" id="button" onclick="convertGrade()" />
+                </div>
+    
+            </form>
+        
+            <div id="output" ></div>
+            
+        </div> <!-- ends div#formwrap -->
+        
+    </div> <!-- ends div#contentwrap -->
+    
+    </body>
+    </html>

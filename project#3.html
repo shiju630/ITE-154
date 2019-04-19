@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Javascript Loan Amount Calculator</title>
+
+<script type="text/javascript">
+
+    function ComputeMonthyPayments() {
+        
+        var c = parseFloat(document.getElementById("loanamount").value);
+        var startinginterestrate = document.getElementById("startinginterestrate").value;
+        var endinginterestrate = document.getElementById("endinginterestrate").value;
+        var yearstoborrow = document.getElementById("yearstoborrow").value;
+
+        var r;
+        var n = yearstoborrow * 12;
+        var monthlypayment;
+
+
+        var msg = "<div>Loan Amount: $" + c.toFixed(2) + "</div><div>Number of Years: " + yearstoborrow +
+                  "</div><div>Starting interest rate: " + startinginterestrate + 
+                  "%</div><div>Ending interest rate:" + endinginterestrate + "%</div>";
+
+        msg += "<table width='90%'><tr><td>Interest Rate</td><td>Monthly Payment</td><td>Total Payment</td></tr>";
+
+        for(var i=startinginterestrate;i<=endinginterestrate;i++){
+            
+            r = i/1200;
+            
+            monthlypayment = ((c*r*Math.pow((1+r),n))/(Math.pow((1+r),n)-1));
+            msg+="<tr><td>" + i + "%</td><td>$" + monthlypayment.toFixed(2)
+                +"</td><td>$" + (n * monthlypayment).toFixed(2) + "</td></tr>";
+        }
+
+        document.getElementById("output").innerHTML=msg;           
+    }
+
+
+
+</script>
+
+<style type="text/css">
+
+body {
+	background-image: url("http://newton.ncc.edu/gansonj/ite101/img/bk2.jpg");
+	color: darkblue;
+	font-family: arial;
+	text-align: center;
+}
+
+#pagewrap {
+	border: 6px red double;
+	padding: 20px;
+	background-image: url("http://newton.ncc.edu/gansonj/ite101/img/swirls.jpg");
+	width: 700px;
+	margin: 25px auto 0px auto;
+}
+
+#heading {
+	border: 6px red double;
+	background-color: darkblue;
+	font-size: 1.75em;
+	padding: 15px;
+	color: white;
+}
+
+#formdiv {
+	margin-top: 15px;
+	border: 6px darkblue double;
+	padding: 15px 0px 0px 0px;
+}
+
+.formtext {
+	margin-top: 4px;
+}
+
+table, th, td {
+	border: 1px blue solid
+}
+
+table {
+	margin: 10px auto;
+}
+
+td {
+	padding: 5px;
+}
+
+input[type=button] {
+
+	border:2px black solid;
+	border-radius: 15px;
+}
+
+tr:nth-child(even) {
+	background-color: lightgrey;	
+}
+
+tr:nth-child(odd) {
+	background-color: white;
+	
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id="pagewrap">
+
+	<div id="heading">Javascript Loan Amount Calculator</div>
+	
+	<div id="formdiv">
+	
+		<form>
+		
+			<div class="formtext">Enter initial loan amount: </div>
+			<input type="text" size="20" id="loanamount"/>
+ 
+			<div class="formtext">Enter starting interest rate: </div>
+			<input type="text" size="20" id="startinginterestrate"/>
+ 
+			<div class="formtext">Enter ending interest rate: </div>
+			<input type="text" size="20" id="endinginterestrate"/>
+
+			<div class="formtext">Enter how many years to borrow: </div>
+			<input type="text" size="20" id="yearstoborrow"/>
+			
+ 			<div style="margin-top:13px;">
+				<input type="button" value="Compute Monthly Payments" onclick="ComputeMonthyPayments()"/>
+			</div>
+			
+		</form>
+		
+	</div> <!-- ends div#formdiv -->
+
+	<div id="output"></div>
+
+</div> <!-- ends div#pagewrap -->
+
+</body>
+</html>

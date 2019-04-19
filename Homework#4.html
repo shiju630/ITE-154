@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Bowling Average Calculator</title>
+
+<script type="text/javascript">
+
+    function calcAvg()
+    {
+    
+        var score1 = parseInt(document.getElementById("score1").value);
+        var score2 = parseInt(document.getElementById("score2").value);
+        var score3 = parseInt(document.getElementById("score3").value);
+        
+        var avg = parseFloat((score1+score2+score3)/3);
+
+        var msg = "<div> Bowler's name is " + document.getElementById("bowlername").value + "</div>";
+        msg = msg + "Bowlers Average is: " + avg.toFixed(2);
+        document.getElementById("output").innerHTML=msg;
+
+
+    }
+
+</script>
+
+<style type="text/css">
+
+body {
+	background-color: rgb(204, 252, 255);
+	text-align: center;
+	font-family: arial;
+}
+
+#pagewrap {
+	border: 5px #FF0000 solid;
+	border-radius: 15px;
+	background-color: #ffffcc;
+	width: 700px;
+	margin: 20px auto 0px auto;
+	padding: 20px;
+}
+
+
+#heading {
+	color: #885ead;
+	font-size: 2.5em;
+	margin: 20px auto 0px auto;
+}
+
+hr {
+    background-color:#ff0000;
+    padding:0;
+}
+
+.formtext {
+	color: #885ead;
+	text-align: center;
+	margin-bottom: 5px;
+	font-size: 1.4em;
+}
+.formfield {
+	margin-bottom: 15px;
+	width: 150px;
+}
+
+#button {
+    border-radius: 10px;
+}
+
+#output {
+	color: #009900;
+	font-size: 1.15em;
+	font-weight: bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div id="pagewrap">
+
+        <div id="heading">Bowling Average Calculator</div>
+
+        <hr>
+        <hr>
+	
+	<div id="formwrap">
+		
+		<form>
+            
+            <div class="formtext">Enter name of bowler</div>
+            <input type="text" id="bowlername" class="formfield" size="30" />
+            
+			<div class="formtext">Enter score 1</div>
+			<input type="text" id="score1" class="formfield" size="30" />
+			
+			<div class="formtext">Enter score 2</div>
+			<input type="text" id="score2" class="formfield" size="30" />
+			
+			<div class="formtext">Enter score 3</div>
+			<input type="text" id="score3" class="formfield" size="30" />
+			
+			<div style="margin-top: 12px;">
+				<input type="button" id="button" value="Calculate Average" onClick="calcAvg()" />
+			</div>
+		
+		</form>
+		
+		<div id="output"></div>
+
+	</div> <!-- Ends div#formwrap -->
+
+</div> <!-- Ends div#pagewrap -->
+
+</body>
+</html>

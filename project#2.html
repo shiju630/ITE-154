@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>ITE154 Calorie Calculator</title>
+
+<script type="text/javascript">
+    
+    function calcCalories(){
+
+        var gender=document.getElementById("gender").value;
+        var height=parseFloat(document.getElementById("height").value);
+        var weight=parseFloat(document.getElementById("weight").value);
+        var age=parseInt(document.getElementById("age").value);
+        var activity=document.getElementById("activity").value;
+
+        var bmr;
+
+        if (gender=="m") {
+            bmr=66 + (6.3 * weight) + (12.9 * height) - (6.8 * age);
+        } else {
+            bmr=655 + (4.3 * weight) + (4.7 * height) - (4.7 * age);
+        }
+
+		var calories;
+
+		if(activity=="level1"){calories=bmr+bmr*0.2;}
+		else if(activity=="level2"){calories=bmr+bmr*0.3;}
+		else if(activity=="level3"){calories=bmr+bmr*0.4;}
+		else if(activity=="level4"){calories=bmr+bmr*0.5;}
+
+		calories=Math.round(calories);
+
+		var msg1="<div> To maintain your current weight...</div>" + "<div>You must eat " + calories + " calories per day </div>";
+
+		var msg2="<div> To lose 1 pound per week... </div>" + "<div>You must eat " + (calories-500) + " calories per day </div>";
+		
+		var msg3="<div> To gain 1 pound per week... </div>" + "<div>You must eat " + (calories+500) + " calories per day </div>";
+		
+		document.getElementById("output").innerHTML=msg1+msg2+msg3;
+    }
+
+</script>
+
+<style type="text/css">
+
+body {
+	background: #FF9933;
+	color: black;
+	font-family: comic sans ms;
+}
+
+#pagewrap {
+	border: 6px blue solid;
+	padding: 20px;
+	background-image: url("http://newton.ncc.edu/gansonj/ite154/img/veggies.jpg");
+	width: 800px;
+	margin: 20px auto 0px auto;
+	border: 6px #81C6DD solid;
+	border-radius: 25px;
+}
+
+#contentwrap {
+	background: #99CCCC;
+	border: 6px #9E3B33 solid;
+	border-radius: 25px;
+}
+
+#header {
+	margin: 10px 10px 10px 10px; 
+	text-align: center;
+	color: #ffffff;
+	background: #003399;
+	font-weight: bold;
+	font-size: 1.75em;
+	border-radius: 25px;
+	padding: 5px 0px 5px 0px;
+}
+
+#formwrap {
+	margin: 10px 10px 10px 10px; 
+
+	background: #CCCCCC;
+	border: 5px solid #9E3B33;
+	border-radius: 25px;
+	padding: 10px;
+	background-image: url("http://newton.ncc.edu/gansonj/ite154/img/broccoli.png");
+	background-repeat: no-repeat;
+	background-position:right center;
+}
+
+.formtext {
+	color: black;
+	margin-top: 8px;
+}
+
+.formfield {
+	padding: 5px;
+	background: #99CCCC;
+	color: black;
+	border: 2px #003399 solid;
+	border-radius: 25px;
+}
+
+#calcbutton {
+	background: #E48743;
+	color: white;
+	cursor: pointer;
+	padding: 5px 0px 5px 0px;
+	border: 3px solid #90CA77;
+	width: 150px;
+}
+
+#calcbutton:hover {
+	background: #90CA77;
+	color: #000000;
+	border: 3px solid #E48743;	
+}
+
+#results {
+	color: #003399;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="pagewrap">
+
+	<div id="contentwrap">
+	
+		<div id="header">
+			The Nifty ITE154 Calorie Counter
+		</div>
+	
+		<div id="formwrap">
+	
+			<form>
+			
+				<div class="formtext">Select your gender</div>
+				<select id="gender" class="formfield">
+					<option value="m">Male</option>
+					<option value="f">Female</option>
+				</select>
+				
+				<div class="formtext">Enter your weight (pounds)</div>
+				<input type="text" class="formfield" id="weight" size="40" />
+	
+				<div class="formtext">Enter your height (inches)</div>
+				<input type="text" class="formfield" id="height" size="40" />
+				
+				<div class="formtext">Enter your age (years)</div>
+				<input type="text" class="formfield" id="age" size="40" />
+		
+				<div class="formtext">Select your activity level (1-4)</div>
+				<select id="activity" class="formfield">
+					<option value="level1">Level 1 - Sedentary - little or no exercise</option>
+					<option value="level2">Level 2 - Lightly Active - exercise 1-3 times/week</option>
+					<option value="level3">Level 3 - Moderately Active - exercise 3-5 times/week</option>
+					<option value="level4">Level 4 - Very Active - exercise 6-7 times/week</option>
+				</select>
+		
+				<div style="margin-top:20px;">
+					<input type="button" value="Calculate Calories" id="calcbutton" onClick="calcCalories()" />
+				</div>
+
+			</form>	
+
+			<div id="output"></div>
+
+		</div> <!-- ends div#formwrap -->
+
+	</div> <!-- ends div#contentwrap -->
+
+</div> <!-- ends div#pagewrap -->
+
+</body>
+</html>

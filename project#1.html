@@ -1,0 +1,124 @@
+
+<html>
+<head>
+    <title>Pizza.html</title>
+    <style>
+    
+    body{
+        font-family: comic sans ms;
+        background-color: #e9b64d;
+    }
+    
+    #mainwrapper{
+        width:700px;
+        margin: 25px auto 0 auto;
+        border: 5px #9e3b33 solid;
+        padding: 20px;
+        background-color: #81c6dd;
+        border-radius: 25px;
+
+    }
+
+    .top_bottom{
+        padding: 10px;
+        font-size: 1.5em;
+        text-align: center;
+        background-color: #9e3b33;
+        color: #fff;
+        border-radius: 50px;
+        font-weight: bold;
+
+    }
+
+    #top{
+        background-image: url("http://newton.ncc.edu/gansonj/ite154/img/pizza3.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-bottom: 15px;
+    }
+
+    #bottom{
+        margin-top: 15px;
+    }
+
+
+    #middle{
+        background-color: #fff;
+        padding: 10px;
+        border: 5px #9e3b33 solid;
+        border-radius: 50px;
+        height: 400px;
+    }
+
+    #middle_left{
+        margin-top: 25px;
+    }
+    
+    .name_input{
+        background-color: #90ca77;
+        border:3px #e8743e solid;
+        padding: 5px;
+        border-radius: 25px;
+    }
+
+    #select_toppings{
+        margin: 15px 0px 15px 0px;
+    }
+
+    .select_input{
+        background-color: #90ca77;
+        border:3px #e8743e solid;
+        padding: 5px;
+        width:150px;
+        border-radius: 10px;
+    }
+
+    #btn{
+        background-color: #e8743e;
+        border:3px #90ca77 solid;
+        padding: 5px;
+        width:150px;
+        color: #fff;
+        margin-top: 25px;
+    }
+
+    </style>
+</head>
+<body>
+    
+    <div id="mainwrapper">
+
+        <div class="top_bottom" id="top">Uncle Luigi's Gourmet Pizza Shack</div>
+        
+        <div id="middle">
+
+            <img align="right" id="pizzaimage" src="http://newton.ncc.edu/gansonj/ite154/img/pizza1.png">  
+
+            <div id="middle_left">
+                <div>Enter your name</div>
+                <input class="name_input" type="text"></input>
+                    <div id="select_toppings">
+                        Select Pizza topping(s)<br>
+                        <input type="checkbox">Gummy Bears</input><br>
+                        <input type="checkbox">Hot Fudge</input><br>
+                        <input type="checkbox">Sprinkles</input><br>
+                    </div>
+                <div>Choose Pizza Size</div>
+                <select class="select_input">
+                    <option>Small (Serves 2)</option>
+                    <option>Medium (Serves 3)</option>
+                    <option selected>Large (Serves 4)</option>
+                </select>
+                <input id="btn" type="button" value="Place Order"></input>
+            </div>
+
+        </div>
+
+        <div class="top_bottom" id="bottom">Thanks for Visiting!</div>
+
+    </div>
+
+
+
+</body>
+</html>
