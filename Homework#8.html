@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Find the Hypotenuse!</title>
+
+<script type="text/javascript" src= "hyp.js"></script>
+<script type="text/javascript">
+ 
+    function calcTriangle(){
+
+        var sidea = parseFloat(document.getElementById("sidea").value);
+        var sideb = parseFloat(document.getElementById("sideb").value);
+
+        var hyp = findHypotenuse(sidea, sideb);	
+
+		var msg = "<div> The length of the third side is: " + hyp + " inches";
+		document.getElementById("output").innerHTML = msg; 
+    }
+
+</script>
+
+<style type="text/css">
+body {
+	background-image: url("http://www.vectortiles.com/wp-content/uploads/triangle-patterns-04.jpg");
+	font-family: arial;
+	text-align: center;
+	color: #009598;
+}
+
+#titletext {
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #2d4e9d;
+	padding-bottom: 10px;
+	border-bottom: #2d4e9d 6px double;
+}
+
+#pagewrap {
+	width: 650px;
+	background-color: #FFFFFF;
+	border: #000000 8px solid;
+	margin: 40px auto 0px auto;
+	padding: 20px;
+}
+
+.inputtext {
+	color: #009598;
+	font-weight: bold;
+	margin-top: 20px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#buttonstyle {
+	border-radius: 20px;
+	background-color: #D8D8D8;
+	font-weight: bold;
+	margin-top: 20px;
+	padding: 5px;
+	width: 175px;
+}
+
+#results {
+	font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div id="pagewrap">
+
+	<div id="titletext">Find the Hypotenuse!</div>
+	
+	<form>
+
+		<div class="inputtext" style="color:#9d257e;">
+			Enter the size in inches of the first side of the triangle
+		</div>
+		<input type="text" id="sidea" style="text-align:center"><br />
+	
+		<div class="inputtext" style="color:#2f9623;">
+			Enter the size in inches of the second side of the triangle
+		</div>
+		<input type="text" id="sideb" style="text-align:center"><br />
+	
+		<input type="button" value="Find the Third Side!" id="buttonstyle" onClick="calcTriangle()">	
+		
+	</form>
+	
+	<div id="output"></div>
+
+</div> <!-- div#pagewrap -->
+
+</body>
+</html>
